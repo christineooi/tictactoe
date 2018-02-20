@@ -20,9 +20,7 @@ function checkWinner(currPlayerSelections) {
     
     for(var i=0; i<winningCombinations.length; i++) {
         var matches = 0;
-        for(var j=0; j<winningCombinations[i].length; j++) {
-console.log("winningCombinations[i]: " + winningCombinations[i]);   
-console.log("playerSelections: " +  currPlayerSelections);         
+        for(var j=0; j<winningCombinations[i].length; j++) {        
             if(currPlayerSelections.includes(winningCombinations[i][j])) {
                 matches++;
             } else {
@@ -43,14 +41,20 @@ function checkDraw() {
 
 // Reset the board by clearing player selections and erase Xs and Os
 function resetGame() {
+    setMessage("");
     playerXSelections = new Array();
     playerOSelections = new Array();
     for(var i = 0; i < cells.length; i++) {
       cells[i].innerHTML = ""
+      cells[i].classList.remove("clickedClass");
     }
 }
 
 // When cell is clicked
+function setMessage(msg){
+    document.getElementById("message").innerHTML = msg;
+}
+
 handleClick = function(event) {
 
   var cell = event.target;
@@ -61,18 +65,17 @@ handleClick = function(event) {
     // Put X or O in the cell
     cell.innerHTML = currentPlayer;
 
+    cell.classList.add("clickedClass");
+
         if(currentPlayer === "X" ) {
             playerSelections = playerXSelections;
-console.log("playerXSelections: " + playerXSelections);
             nextPlayer = "O";
         } else {
             playerSelections = playerOSelections;
-console.log("playerOSelections: " + playerOSelections);
             nextPlayer = "X";
         }
 
         playerSelections.push(parseInt(cell.id));
-console.log("playerSelections: " + playerSelections);
 
         if(checkWinner(playerSelections)) {
             alert("Player " + currentPlayer + " wins!")
@@ -86,6 +89,8 @@ console.log("playerSelections: " + playerSelections);
   
         // Swap players
         currentPlayer = nextPlayer;
+        setMessage(currentPlayer + " is next");
+
   } else {
       alert("This cell is taken already");
   }

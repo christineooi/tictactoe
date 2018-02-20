@@ -1,14 +1,27 @@
 body {
+    width: 800px;
     margin: auto;
+    background-color: beige;  
+    text-align: center;
+}
+
+#container {
+    max-width: 500px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
 }
 
 td {
     border: 1px solid blue;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    font-size: 40px;
 }
   
 td:hover {
@@ -18,4 +31,19 @@ td:hover {
   
 table {
     border: 1px solid green;
+    background-color: white;
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+#message {
+    color: darkblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.clickedClass {
+    background-color: aqua;
+
 }
