@@ -17,8 +17,28 @@ const winningCombinations = [
 
 
 handleClick = function(event) {
-    var cell = event.target
-    console.log(cell.id);
+
+  var cell = event.target;
+
+  // Put X or O in the cell
+  cell.innerHTML = currentPlayer;
+
+  if(currentPlayer === "X" ) {
+    playerSelections = playerXSelections;
+console.log("playerXSelections: " + playerXSelections);
+    nextPlayer = "O";
+  } else {
+    playerSelections = playerOSelections;
+console.log("playerOSelections: " + playerOSelections);
+    nextPlayer = "X";
+  }
+
+  playerSelections.push(parseInt(cell.id));
+console.log("playerSelections: " + playerSelections);
+  
+
+  // Swap players
+  currentPlayer = nextPlayer;
 }
  
 // Gets an array of all the cells
@@ -27,4 +47,9 @@ var cells = document.querySelectorAll("td");
 // Iterates through those cells to add an Event Listener
 for(var i = 0; i < cells.length; i++) {
     cells[i].addEventListener('click', handleClick)
+}
+
+// Check for winning combo
+function checkWinner {
+
 }
