@@ -13,6 +13,7 @@ td {
   
 td:hover {
     background: orange;
+    cursor: pointer;
 }
   
 table {
