@@ -1,0 +1,17 @@
+body {
+    margin: auto;
+}
+
+td {
+    border: 1px solid blue;
+    width: 40px;
+    height: 40px;
+}
+  
+td:hover {
+    background: orange;
+}
+  
+table {
+    border: 1px solid green;
+}
