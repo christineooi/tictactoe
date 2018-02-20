@@ -55,34 +55,40 @@ handleClick = function(event) {
 
   var cell = event.target;
 
-  // Put X or O in the cell
-  cell.innerHTML = currentPlayer;
+  if(cell.innerHTML === "") {
 
-    if(currentPlayer === "X" ) {
-        playerSelections = playerXSelections;
+  
+    // Put X or O in the cell
+    cell.innerHTML = currentPlayer;
+
+        if(currentPlayer === "X" ) {
+            playerSelections = playerXSelections;
 console.log("playerXSelections: " + playerXSelections);
-        nextPlayer = "O";
-    } else {
-        playerSelections = playerOSelections;
+            nextPlayer = "O";
+        } else {
+            playerSelections = playerOSelections;
 console.log("playerOSelections: " + playerOSelections);
-        nextPlayer = "X";
-    }
+            nextPlayer = "X";
+        }
 
-    playerSelections.push(parseInt(cell.id));
+        playerSelections.push(parseInt(cell.id));
 console.log("playerSelections: " + playerSelections);
 
-    if(checkWinner(playerSelections)) {
-        alert("Player " + currentPlayer + " wins!")
-        resetGame();
-    }
+        if(checkWinner(playerSelections)) {
+            alert("Player " + currentPlayer + " wins!")
+            resetGame();
+        }
 
-    if(checkDraw()) {
-        alert("Draw!");
-        resetGame();
-    }    
+        if(checkDraw()) {
+            alert("Draw! Game Over.");
+            resetGame();
+        }    
   
-  // Swap players
-    currentPlayer = nextPlayer;
+        // Swap players
+        currentPlayer = nextPlayer;
+  } else {
+      alert("This cell is taken already");
+  }
 }
  
 // Gets an array of all the cells
