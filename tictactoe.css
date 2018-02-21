@@ -25,12 +25,13 @@ td {
 }
   
 td:hover {
-    background: orange;
+    background: aqua;
     cursor: pointer;
 }
   
 table {
-    border: 1px solid green;
+    border: 1px solid black;
+    border-style: hidden;
     background-color: white;
     margin-left: 90px;
     margin-top: 10px;
@@ -41,6 +42,7 @@ table {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 20px;
+    height: 30px;
 }
 
 .clickedClass {

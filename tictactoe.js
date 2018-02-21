@@ -80,16 +80,14 @@ handleClick = function(event) {
         if(checkWinner(playerSelections)) {
             alert("Player " + currentPlayer + " wins!")
             resetGame();
-        }
-
-        if(checkDraw()) {
+        } else if(checkDraw()) {
             alert("Draw! Game Over.");
             resetGame();
-        }    
-  
-        // Swap players
-        currentPlayer = nextPlayer;
-        setMessage(currentPlayer + " is next");
+        } else { 
+            // Swap players
+            currentPlayer = nextPlayer;
+            setMessage(currentPlayer + " is next");
+        }
 
   } else {
       alert("This cell is taken already");
